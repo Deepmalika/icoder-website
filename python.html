@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iCoder - Heaven For Programmers</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      /* Fix for consistent image sizing in carousel */
+      .carousel-inner img {
+        width: 1400px;
+        height: 400px; /* You can adjust the height as needed */
+       /* object-fit: cover; /* Ensures the image fills the space without stretching */
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+    const toggleButton = document.getElementById("darkModeToggle");
+    const body = document.body;
+
+    // Function to enable dark mode
+    function enableDarkMode() {
+        body.classList.add("bg-dark", "text-white");
+        body.classList.remove("bg-light", "text-dark"); // Remove light mode styles
+        localStorage.setItem("darkMode", "enabled");
+        toggleButton.innerText = "☀️ Disable Dark Mode";
+    }
+
+    // Function to disable dark mode
+    function disableDarkMode() {
+        body.classList.remove("bg-dark", "text-white");
+        body.classList.add("bg-light", "text-dark"); // Ensure light mode styles are applied
+        localStorage.setItem("darkMode", "disabled");
+        toggleButton.innerText = "🌙 Enable Dark Mode";
+    }
+
+    // Check if dark mode was previously enabled in localStorage
+    if (localStorage.getItem("darkMode") === "enabled") {
+        enableDarkMode();
+    } else {
+        disableDarkMode(); // Ensure proper light mode on first load
+    }
+
+    // Toggle dark mode on button click
+    toggleButton.addEventListener("click", function () {
+        if (body.classList.contains("bg-dark")) {
+            disableDarkMode();
+        } else {
+            enableDarkMode();
+        }
+    });
+});
+
+</script>
+  
+  </head>
+  <body >
+    <nav class="navbar navbar-expand-lg navbar bg-dark bg-body-tertiary navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html">iCoder</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item ">
+              <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="/about.html">About Us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Topics
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Technology</a></li>
+                <li><a class="dropdown-item" href="#">Web Development</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Support</a></li>
+                <li><a class="dropdown-item" href="#">Write for us</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.html">Contact Us</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
+        </div>
+        <div class="mx-2">
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">SignUp</button>
+          
+        </div>
+        <button id="darkModeToggle" class="btn btn-dark" >🌙 Enable Dark Mode</button>
+      </div>
+    </nav>
+    <!--Login-->
+    <!-- Button trigger modal -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="loginModalLabel">Login to iCoder</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label"> Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+         
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!--Signup-->
+<!-- Button trigger modal -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content text-dark">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="signupModalLabel">Get an iCoder account</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          
+          <label for="exampleInputEmail1" class="form-label">Name</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+          </div>
+          <div class="mb-3">
+            <label for="cexampleInputPassword1" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="cexampleInputPassword1">
+          </div>
+         
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+   <!-- Learn Python Section -->
+<section id="learn-python" class="container py-5">
+    <div class="container">
+  
+      <!-- Hero Section -->
+      <div class="row mb-5 align-items-center">
+        <div class="col-lg-6">
+          <h2 class="display-4">Learn Python the Fun Way!</h2>
+          <p class=" lead">Python is one of the most powerful programming languages today. It’s beginner-friendly and has an extensive community that makes learning fun and rewarding.</p>
+          <a href="#start-learning" class="btn btn-info btn-lg text-ligh">Start Learning Now</a>
+        </div>
+        <div class="col-lg-6">
+          <img src="python-hero1.jpg" alt="Python Programming" class="img-fluid rounded shadow-lg">
+        </div>
+      </div>
+  
+      <!-- Why Learn Python Section -->
+      <div class="row text-center mb-5">
+        <div class="col-md-4">
+          <div class="card border-light shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title text-primary text-dark">Why Python?</h3>
+              <p class="card-text text-muted">Python’s simple syntax and powerful libraries make it ideal for web development, automation, data analysis, and machine learning.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-light shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title text-primary text-dark">Beginner Friendly</h3>
+              <p class="card-text text-muted">With its readability and easy-to-understand syntax, Python is perfect for beginners starting their programming journey.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-light shadow-sm">
+            <div class="card-body">
+              <h3 class="card-title text-primary text-dark">Endless Applications</h3>
+              <p class="card-text text-muted">Python powers a variety of applications, from web development to artificial intelligence, making it a versatile tool for any developer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Key Python Topics -->
+      <div class="row mb-5">
+        <div class="col-md-4">
+          <div class="card text-center shadow-lg">
+            <img src="logo.jpg" class="card-img-top" alt="Python Basics">
+            <div class="card-body">
+              <h5 class="card-title text-primary text-dark">Python Basics</h5>
+              <p class="card-text text-muted">Understand the core concepts of Python, such as variables, data types and control structures </p>
+              <a href="#" class="btn btn-info btn-lg text-light">Explore</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center shadow-lg">
+            <img src="img15.jpg" class="card-img-top" alt="Advanced Python">
+            <div class="card-body">
+              <h5 class="card-title text-primary text-dark">Advanced Python</h5>
+              <p class="card-text text-muted">Explore more advanced topics like object-oriented programming, libraries, and modules in Python.</p>
+              <a href="#" class="btn btn-info btn-lg text-light">Learn More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card text-center shadow-lg">
+            <img src="project.jpg" class="card-img-top" alt="Python Projects">
+            <div class="card-body">
+              <h5 class="card-title text-primary text-dark">Projects</h5>
+              <p class="card-text text-muted">Apply what you’ve learned with practical Python projects like calculators, web scrapers, and more.</p>
+              <a href="#" class="btn btn-info btn-lg text-light">Start Projects</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Python Project Examples -->
+      <div class="row mb-5">
+        <div class="col-md-6 mb-3">
+          <div class="card border-light shadow-sm">
+            <img src="1.jpg" class="card-img-top" alt="Python To-Do List Project">
+            <div class="card-body">
+              <h5 class="card-title">To-Do List App</h5>
+              <p class="card-text">Create a simple to-do list app where you can add, edit, and delete tasks while practicing Python syntax.</p>
+              <a href="#" class="btn btn-primary">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <div class="card border-light shadow-sm">
+            <img src="2.jpg" class="card-img-top" alt="Python Calculator Project">
+            <div class="card-body">
+              <h5 class="card-title">Python Calculator</h5>
+              <p class="card-text">Build a simple calculator app using Python that performs basic arithmetic operations like addition and subtraction.</p>
+              <a href="#" class="btn btn-primary">Start Coding</a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Helpful Resources Section -->
+      <div class="text-center">
+        <h3 class=" text-center mb-4">Resources to Learn Python</h3>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card border-light shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title text-info text-dark">Books</h5>
+                <p class="card-text text-muted">Check out great books like *"Automate the Boring Stuff with Python"* to enhance your learning.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card border-light shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title text-info text-dark">Online Courses</h5>
+                <p class="card-text text-muted">Explore free Python courses from platforms like Coursera, Udemy, and Codecademy.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card border-light shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title text-info text-dark">Interactive Tools</h5>
+                <p class="card-text text-muted">Practice coding interactively on platforms like Replit and Jupyter Notebooks.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </section>
+  
+    <div class="d-flex justify-content-center py-4 border-top">
+      <p>© 2024 Company, Inc. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+      </ul>
+    </div>
+
+    <!-- <script>
+      const accessKey = 'Kp5vXku5hhxcxek-qYhQDHGkxLmVoGPAcjGuBTnAwN8';  // Replace with your actual API Access Key
+
+      // Function to fetch images from Unsplash
+      function fetchImages() {
+        const url = `https://api.unsplash.com/photos/random?query=laptop&client_id=${accessKey}&count=3`; // Fetch 3 images
+
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            const carouselInner = document.getElementById('carousel-images');
+            carouselInner.innerHTML = ''; // Clear previous images
+
+            data.forEach((image, index) => {
+              const isActive = index === 0 ? 'active' : ''; // Set first image as active
+              const carouselItem = `
+                <div class="carousel-item ${isActive}">
+                  <img src="${image.urls.small}" class="d-block w-100" alt="Image" width="1400" height="400">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>${image.alt_description || 'Untitled'}</h5>
+                    <p>${image.description || 'No description available.'}</p>
+                  </div>
+                </div>
+              `;
+              carouselInner.innerHTML += carouselItem;
+            });
+          })
+          .catch(error => console.error('Error fetching images:', error));
+      }
+
+      // Fetch images when the page loads
+      window.onload = fetchImages;
+    </script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

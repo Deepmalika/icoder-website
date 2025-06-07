@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>iCoder - Heaven For Programmers</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+      /* Fix for consistent image sizing in carousel */
+      .carousel-inner img {
+        width: 1400px;
+        height: 400px; /* You can adjust the height as needed */
+       /* object-fit: cover; /* Ensures the image fills the space without stretching */
+      }
+    </style>
+    <style>
+        /* 🌙 Smooth Theme Transition */
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleButton = document.getElementById("darkModeToggle");
+            const body = document.body;
+    
+            // Function to enable dark mode
+            function enableDarkMode() {
+                body.classList.add("bg-dark", "text-white");
+                localStorage.setItem("darkMode", "enabled");
+                toggleButton.innerText = "☀️ Disable Dark Mode";
+            }
+    
+            // Function to disable dark mode
+            function disableDarkMode() {
+                body.classList.remove("bg-dark", "text-white");
+                localStorage.setItem("darkMode", "disabled");
+                toggleButton.innerText = "🌙 Enable Dark Mode";
+            }
+    
+            // Check if dark mode was previously enabled
+            if (localStorage.getItem("darkMode") === "enabled") {
+                enableDarkMode();
+            }
+    
+            // Toggle dark mode on button click
+            toggleButton.addEventListener("click", function () {
+                if (body.classList.contains("bg-dark")) {
+                    disableDarkMode();
+                } else {
+                    enableDarkMode();
+                }
+            });
+        });
+    </script>
+    
+  </head>
+  <body class="light-mode">
+    
+    <nav class="navbar navbar-expand-lg navbar bg-dark bg-body-tertiary navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/index.html">iCoder</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item ">
+              <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link" href="/about.html">About Us</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Topics
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Technology</a></li>
+                <li><a class="dropdown-item" href="#">Web Development</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Support</a></li>
+                <li><a class="dropdown-item" href="#">Write for us</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.html">Contact Us</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
+        </div>
+        <div class="mx-2">
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#signupModal">SignUp</button>
+          
+        </div>
+        <button id="darkModeToggle" class="btn btn-dark" >🌙 Enable Dark Mode</button>
+      </div>
+    </nav>
+    <!--Login-->
+    <!-- Button trigger modal -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content text-dark">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="loginModalLabel">Login to iCoder</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"> Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Signup-->
+  <!-- Button trigger modal -->
+  
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content text-dark">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="signupModalLabel">Get an iCoder account</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            
+            <label for="exampleInputEmail1" class="form-label"> Name</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+          
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="mb-3">
+              <label for="cexampleInputPassword1" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="cexampleInputPassword1">
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+   <!-- Cybersecurity Section -->
+<section id="cybersecurity" class="container py-5">
+    <div class="text-center mb-4">
+        <h2 class="fw-bold">🔐 Cybersecurity: Safeguarding the Digital World</h2>
+        <p class="lead">Explore the latest trends, tools, and strategies in cybersecurity to stay ahead of evolving cyber threats.</p>
+    </div>
+
+    <!-- 🔥 Carousel Slider for Cybersecurity Trends -->
+    <div id="cyberCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="3000">
+                <img src="img22.jpg" class="d-block w-100" alt="Cyber Attack Trends">
+                <div class="carousel-caption bg-dark bg-opacity-50 p-3 rounded">
+                    <h5>🚨 Rising Cyber Attacks</h5>
+                    <p>Cyber threats are increasing at an alarming rate. Stay protected with the latest security measures.</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="3000">
+                <img src="img23.jpg" class="d-block w-100" alt="AI in Cybersecurity">
+                <div class="carousel-caption bg-dark bg-opacity-50 p-3 rounded">
+                    <h5>🤖 AI in Cybersecurity</h5>
+                    <p>Artificial Intelligence is transforming cybersecurity, making threat detection smarter and faster.</p>
+                </div>
+            </div>
+            <div class="carousel-item"data-bs-interval="3000">
+                <img src="img24.jpg" class="d-block w-100" alt="Data Protection">
+                <div class="carousel-caption bg-dark bg-opacity-50 p-3 rounded">
+                    <h5>🔐 Data Encryption & Privacy</h5>
+                    <p>Learn how encryption techniques protect sensitive data from cybercriminals.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#cyberCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#cyberCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+
+    <!-- 🔥 Cybersecurity Cards with Modal Popups -->
+    <div class="row g-4">
+        <!-- Card 1: Ethical Hacking -->
+        <div class="col-md-4">
+            <div class="card shadow-lg h-100">
+                <img src="img25.jpg" class="card-img-top card" alt="Ethical Hacking">
+                <div class="card-body">
+                    <h5 class="card-title">🛡️ Ethical Hacking</h5>
+                    <p class="card-text">Learn how ethical hackers protect systems by identifying vulnerabilities.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: AI in Cybersecurity -->
+        <div class="col-md-4">
+            <div class="card shadow-lg h-100">
+                <img src="img26.jpg" class="card-img-top card" alt="AI in Cybersecurity">
+                <div class="card-body">
+                    <h5 class="card-title">🤖 AI in Cybersecurity</h5>
+                    <p class="card-text">Explore how AI and machine learning are improving threat detection and response.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Ransomware Defense -->
+        <div class="col-md-4">
+            <div class="card shadow-lg h-100">
+                <img src="img27.jpg" class="card-img-top card" alt="Ransomware Protection">
+                <div class="card-body">
+                    <h5 class="card-title">💾 Ransomware Defense</h5>
+                    <p class="card-text">Protect yourself against ransomware attacks and learn preventive measures.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<style>
+    .card{
+        height:300px;
+        width:100%;
+        background-size: cover;
+
+    }
+</style>
+    <!-- 🔥 Modal for Ethical Hacking -->
+    <div class="modal fade" id="ethicalHackingModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">🛡️ Ethical Hacking</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Ethical hacking involves identifying and fixing security vulnerabilities before hackers exploit them.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔥 Modal for AI in Cybersecurity -->
+    <div class="modal fade" id="aiCyberModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">🤖 AI in Cybersecurity</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    AI is transforming cybersecurity with intelligent threat detection and automated defense mechanisms.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔥 Modal for Ransomware -->
+    <div class="modal fade" id="ransomwareModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">💾 Ransomware Protection</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Ransomware is a major threat. Learn how to safeguard your data from encryption-based attacks.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔥 FAQ Section -->
+    <div class="accordion my-5" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                ❓ What are the most common types of cyberattacks?
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                The most common types of cyberattacks include:
+
+                <p>Phishing: A technique where attackers deceive users into disclosing sensitive information via fake emails or websites.</p>
+                <p>Malware: Software designed to cause harm, such as viruses, worms, and ransomware.</p>
+                <p>Ransomware: A type of malware that locks access to a system or data and demands a ransom for release.</p>
+                <p>Denial-of-Service (DoS): An attack that floods a system, network, or server with traffic to disrupt its operations.</p>
+                <p>Man-in-the-Middle (MitM): An attack where the attacker intercepts communication between two parties to steal data.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                ❓ How can I protect my personal data online?
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                To protect your personal data online:
+
+                <p>Use strong, unique passwords for each account.</p>
+               <p> Enable multi-factor authentication (MFA) wherever possible.</p>
+               <p>  Avoid clicking on links or downloading attachments from unknown emails or websites.</p>
+               <p> Keep your software and operating system updated to patch vulnerabilities.</p>
+               <p> Use a reputable antivirus and anti-malware solution.</p>
+               <p> Be cautious when sharing personal information on social media or websites.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                ❓ What should I do if my account is hacked?
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                If your account is hacked, take these steps:
+
+                <p>Change your password immediately and enable two-factor authentication (2FA) if possible.</p>
+                <p>Review your account activity for any unauthorized actions.</p>
+                <p>Notify the service provider or website about the breach.</p>
+                <p>Check your other accounts for any signs of unauthorized access.</p>
+                <p>If sensitive information (e.g., banking details) was compromised, consider freezing your accounts or notifying relevant authorities.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  ❓ What are the risks of using public Wi-Fi?
+              </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+              <div class="accordion-body">
+                <p>Public Wi-Fi networks, such as those in coffee shops or airports, are typically unsecured, meaning:</p>
+
+                  <p>They can be targeted by hackers to intercept your data.</p>
+                 <p> Attackers may set up rogue Wi-Fi hotspots to steal sensitive information.</p>
+                 <p>  Your personal information (e.g., passwords, credit card details) is at risk when transmitted over an unencrypted network.</p>
+                 
+              </div>
+            </div>
+          </div>
+      </div>
+
+
+
+
+    
+</section>
+
+    <div class="d-flex justify-content-center py-4 border-top">
+      <p>© 2024 Company, Inc. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+      </ul>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+    <!-- <script>
+      const accessKey = 'Kp5vXku5hhxcxek-qYhQDHGkxLmVoGPAcjGuBTnAwN8';  // Replace with your actual API Access Key
+
+      // Function to fetch images from Unsplash
+      function fetchImages() {
+        const url = `https://api.unsplash.com/photos/random?query=laptop&client_id=${accessKey}&count=3`; // Fetch 3 images
+
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            const carouselInner = document.getElementById('carousel-images');
+            carouselInner.innerHTML = ''; // Clear previous images
+
+            data.forEach((image, index) => {
+              const isActive = index === 0 ? 'active' : ''; // Set first image as active
+              const carouselItem = `
+                <div class="carousel-item ${isActive}">
+                  <img src="${image.urls.small}" class="d-block w-100" alt="Image" width="1400" height="400">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5>${image.alt_description || 'Untitled'}</h5>
+                    <p>${image.description || 'No description available.'}</p>
+                  </div>
+                </div>
+              `;
+              carouselInner.innerHTML += carouselItem;
+            });
+          })
+          .catch(error => console.error('Error fetching images:', error));
+      }
+
+      // Fetch images when the page loads
+      window.onload = fetchImages;
+    </script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
